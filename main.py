@@ -31,13 +31,13 @@ if month in birthday_month and day in birthday_day:
     today_bithday_name = j["name"].values
     mail = smtplib.SMTP("smtp.gmail.com")
     mail.starttls()
-    mail.login(user="azhagesan807@gmail.com", password="xyujmdlgnquguoou")
+    mail.login(user="Your Mail", password="Your Password")
     for mails in range(0, len(today_bithday_email)):
         letter = random.choice(letter_list)
         with open(file=f"./letter_templates/{letter}") as file:
             letter_data = file.read()
             letter_withname = letter_data.replace("[NAME]", today_bithday_name[mails])
-            mail.sendmail(from_addr="azhagesan807@gmail.com",
+            mail.sendmail(from_addr="Your mail",
                           to_addrs=today_bithday_email[mails],
                           msg=f"Subject: Happy Birthday \n\n {letter_withname}")
 
